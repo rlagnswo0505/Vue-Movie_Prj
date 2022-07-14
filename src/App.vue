@@ -16,6 +16,18 @@ export default {
 };
 </script>
 <style>
+.column-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -35,5 +47,14 @@ nav a {
 
 nav a.router-link-exact-active {
   color: #42b983;
+}
+table {
+  border: 1px solid #000;
+  border-collapse: collapse;
+}
+td,
+th {
+  border: 1px solid #000;
+  padding: 10px;
 }
 </style>

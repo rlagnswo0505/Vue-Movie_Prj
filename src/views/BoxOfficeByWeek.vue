@@ -1,26 +1,25 @@
 <template>
   <div class="column-center">
-    <h1>BoxOfficeByDay</h1>
+    <h1>BoxOfficeByWeek</h1>
+    <h3>{{ year }} 년도 {{ week }}주차 주간 영화 순위</h3>
     <div>
       <input type="date" name="" v-model="selectedDate" id="" />
       <button @click="search">검색</button>
     </div>
-    <rank-table :list="list" :rankInten="rankInten"></rank-table>
+    <rank-table :list="list" @getMovieInfo="getMovieInfo"></rank-table>
   </div>
 </template>
 
 <script>
 import RankTable from '../components/boxoffice/RankTable.vue';
-
 export default {
-  components: {
-    RankTable,
-  },
+  components: { RankTable },
   data() {
     return {
       selectedDate: '',
       list: [],
-      rankInten: [],
+      year: '',
+      week: '',
     };
   },
   methods: {
@@ -29,23 +28,16 @@ export default {
       this.getData(targetDt);
     },
     async getData(targetDt) {
-      const data = await this.getBoxOfficeByDay(targetDt);
+      const data = await this.getBoxOfficeByWeek(targetDt);
       console.log(data);
-      this.list = data.boxOfficeResult.dailyBoxOfficeList;
-      this.list.forEach((item) => {
-        if (item.rankInten > 0) {
-          this.rankInten.push(item.rankInten + '🔺');
-        } else if (item.rankInten < 0) {
-          this.rankInten.push(item.rankInten + '🔻');
-        } else {
-          this.rankInten.push(item.rankInten);
-        }
-      });
+      this.list = data.boxOfficeResult.weeklyBoxOfficeList;
+      this.year = data.boxOfficeResult.yearWeekTime.slice(0, 4);
+      this.week = data.boxOfficeResult.yearWeekTime.slice(4);
     },
   },
   created() {
     const d = new Date();
-    d.setDate(d.getDate() - 1);
+    d.setDate(d.getDate() - 7);
     this.selectedDate = this.getOnlyDateStr(d);
   },
 };
