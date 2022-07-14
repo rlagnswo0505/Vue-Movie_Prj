@@ -24,6 +24,7 @@ export default {
       red: false,
       blue: false,
       icon: '',
+      info: {},
     };
   },
   computed: {
@@ -50,7 +51,9 @@ export default {
     },
     async showMovieInfo(movieCd) {
       const data = await this.getMovieInfo(movieCd);
-      console.log(data);
+      this.info = data.movieInfoResult.movieInfo;
+      console.log(data.movieInfoResult);
+      this.$emit('showModal', this.info);
     },
   },
 };
