@@ -21,7 +21,7 @@ export default {
             <slot name="body">
               <div class="actors">
                 <h4>출연배우</h4>
-                <div :key="idx" v-for="(item, idx) in actors">{{ item.peopleNm }},</div>
+                <span :key="idx" v-for="(item, idx) in actors">{{ item.peopleNm }}, </span>
               </div>
             </slot>
           </div>

@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 import Home from '../views/Home.vue';
 import BoxOfficeByDayView from '../views/BoxOfficeByDayView.vue';
 import BoxOfficeByWeek from '../views/BoxOfficeByWeek.vue';
+import BoxOffice from '../views/BoxOffice';
 const routes = [
   {
     path: '/',
@@ -11,18 +12,13 @@ const routes = [
   {
     path: '/boxOfficeByDay',
     name: 'boxOfficeByDay',
-    component: BoxOfficeByDayView,
+    component: BoxOffice,
   },
   {
     path: '/boxOfficeByWeek',
     name: 'boxOfficeByWeek',
-    component: BoxOfficeByWeek,
+    component: BoxOffice,
   },
-  // {
-  //   path: '/boxOfficeByDay',
-  //   name: 'boxOfficeByDay',
-  //   component: () => import(/* webpackChunkName: "boxofficebyday", webpackPrefetch:true */ '../views/BoxOfficeByDayView.vue'),
-  // },
 ];
 
 const router = createRouter({

@@ -30,7 +30,6 @@ export default {
     },
     async getData(targetDt) {
       const data = await this.getBoxOfficeByDay(targetDt);
-      console.log(data);
       this.list = data.boxOfficeResult.dailyBoxOfficeList;
       this.list.forEach((item) => {
         if (item.rankInten > 0) {
