@@ -14,7 +14,9 @@ export default {
       <div class="modal-wrapper" @click="$emit('close')">
         <div class="modal-container" @click.stop>
           <div class="modal-header">
-            <slot name="header">{{ header }}</slot>
+            <slot name="header"
+              ><h3>{{ header }}</h3></slot
+            >
           </div>
 
           <div class="modal-body">
@@ -56,7 +58,7 @@ export default {
 }
 
 .modal-container {
-  width: 300px;
+  width: 500px;
   margin: 0px auto;
   padding: 20px 30px;
   background-color: #fff;

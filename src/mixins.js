@@ -3,7 +3,8 @@ import axios from 'axios';
 export default {
   data() {
     return {
-      key: '3d0b04cd8ff4c018915597cba88560a0',
+      key: 'e46586a7edeb1c8a83f25a313f063c2e',
+      // key: '3d0b04cd8ff4c018915597cba88560a0',
       baseUrl: 'http://www.kobis.or.kr/kobisopenapi/webservice/rest/',
       BoxOfficeByDay: 'boxoffice/searchDailyBoxOfficeList.json',
       BoxOfficeByWeek: 'boxoffice/searchWeeklyBoxOfficeList.json',
