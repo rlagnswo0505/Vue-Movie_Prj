@@ -19,8 +19,9 @@ export default {
 
           <div class="modal-body">
             <slot name="body">
-              <div :key="idx" v-for="(item, idx) in actors">
-                <div>{{ item.peopleNm }}</div>
+              <div class="actors">
+                <h4>출연배우</h4>
+                <div :key="idx" v-for="(item, idx) in actors">{{ item.peopleNm }},</div>
               </div>
             </slot>
           </div>

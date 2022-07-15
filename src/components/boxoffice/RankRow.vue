@@ -52,7 +52,7 @@ export default {
     async showMovieInfo(movieCd) {
       const data = await this.getMovieInfo(movieCd);
       this.info = data.movieInfoResult.movieInfo;
-      console.log(data.movieInfoResult);
+      // console.log(data.movieInfoResult);
       this.$emit('showModal', this.info);
     },
   },

@@ -7,7 +7,7 @@
       <button @click="search">검색</button>
     </div>
     <rank-table :list="list" @getMovieInfo="getMovieInfo" @showModal="showModal"></rank-table>
-    <AlertModal :show="modalShow" :header="movieNm" :body="actors" @close="closeModal"></AlertModal>
+    <AlertModal :show="modalShow" :header="movieNm" :actors="actors" @close="closeModal"></AlertModal>
   </div>
 </template>
 
@@ -44,7 +44,7 @@ export default {
       this.week = data.boxOfficeResult.yearWeekTime.slice(4);
     },
     showModal(info) {
-      console.log(info);
+      // console.log(info);
       this.movieNm = info.movieNm;
       this.actors = info.actors;
       this.modalShow ? (this.modalShow = false) : (this.modalShow = true);
